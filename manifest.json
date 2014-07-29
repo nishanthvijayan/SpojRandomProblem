@@ -1,0 +1,19 @@
+{
+"manifest_version": 2,
+
+  "name": "Spoj Random Problem",
+  "description": "This extension opens up a new tab with a random classical problem on SPOJ.com",
+  "version": "1.0",
+  "author": "Nishanth Vijayan",
+  "permissions": [
+    "http://*.herokuapp.com/",
+    "tabs"
+  ],
+  "icons": { 
+              "32": "icon32.png",
+              "128":"icon128.png" },
+  "browser_action": {
+    "default_icon":"icon32.png",
+    "default_popup": "popup.html"
+  }
+}
