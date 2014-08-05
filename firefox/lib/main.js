@@ -24,7 +24,7 @@ var button = buttons.ActionButton({
     "32": "./icon32.png",
     "48": "./icon32.png",
     "64": "./icon32.png",
-    "128":"./icon128.png"
+    "128":"./icon32.png"
   },
   onClick: fetchdata  
 })
