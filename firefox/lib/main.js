@@ -10,7 +10,7 @@ var problemurl;
 
 
 var panel = panels.Panel({
-  width: 101,
+  width: 80,
   height: 101,
   contentURL: self.data.url("spinner.html"),
 });
