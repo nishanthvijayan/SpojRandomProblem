@@ -5,5 +5,5 @@
   "description": "A great Extensions for Spoj.com enthusiasts. Adds a button which on clicking will take the user to a random question on Spoj.com. Helps users find new and random questions to solve.Happy Coding!",
   "author": "",
   "license": "MPL 2.0",
-  "version": "0.1"
+  "version": "0.1.4"
 }
