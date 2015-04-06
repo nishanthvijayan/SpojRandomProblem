@@ -11,7 +11,7 @@ function fetchdata(){
   req.send();
   req.onload = function(){
   res = JSON.parse(req.responseText);
-  problemurl = "http://www.spoj.com/problems/" + res.RandomProblemCode.Code
+  problemurl = "http://www.spoj.com" + res.RandomProblemCode.Code
   chrome.tabs.create({url: problemurl})
   };
 
