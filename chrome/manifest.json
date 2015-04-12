@@ -9,6 +9,7 @@
     "http://*.herokuapp.com/",
     "tabs"
   ],
+  "short_name": "SpojRandom",
   "icons": { 
               "32": "icon32.png",
               "128":"icon128.png" },
