@@ -7,27 +7,31 @@ import random
 app = Flask(__name__)
 
 
-def getData():
+def get_data():
     
-    randomNumOne = random.randint(1, 2900)
-    page = urllib2.urlopen("http://www.spoj.com/problems/classical/sort=0,start="+str(randomNumOne))
+    random_num_one = random.randint(1, 2900)
+    page = urllib2.urlopen("http://www.spoj.com/problems/classical/sort=0,start="+str(random_num_one))
     soup = BeautifulSoup(page,"html.parser")
+    
     probrows = soup.findAll("tr")
-    randomNumTwo = random.randint(1,50)
-    probrow = probrows[randomNumTwo]
-    ID =    str(probrow.select("td")[0].text.strip().encode("ascii","ignore"))
-    CODE = str(probrow.select("td")[1].a["href"].strip().encode("ascii","ignore"))
-    NAME = str(probrow.select("td")[1].text.strip().encode("ascii","ignore"))
-    USERS = str(probrow.select("td")[3].text.strip().encode("ascii","ignore"))
-    ACCURACY = str(probrow.select("td")[4].text.strip().encode("ascii","ignore"))
-    problem = {"ID":ID,"Code":CODE,"Name":NAME,"Users":USERS,"Accuracy":ACCURACY}
+    random_num_two = random.randint(1,50)
+    probrow = probrows[random_num_two]
+    td = probrow.select("td")
+    
+    id =        str(td[0].text.strip().encode("ascii","ignore"))
+    code =      str(td[1].a["href"].strip().encode("ascii","ignore"))
+    name =      str(td[1].text.strip().encode("ascii","ignore"))
+    users =     str(td[3].text.strip().encode("ascii","ignore"))
+    accuracy =  str(td[4].text.strip().encode("ascii","ignore"))
+
+    problem = {"ID":id,"Code":code,"Name":name,"Users":users,"Accuracy":accuracy}
     return problem
 
 
 @app.route('/')
 def index():
 
-    problem = getData()
+    problem = get_data()
     resp = jsonify(RandomProblemCode=problem)
     resp.status_code = 200
     resp.headers['Access-Control-Allow-Origin'] = '*'
@@ -35,6 +39,5 @@ def index():
 
 
 if __name__ == '__main__':
-    #app.run(debug=True)
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
